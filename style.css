@@ -1,3 +1,65 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #121212, #1e1e1e);
+    color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    background: #333;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #00bcd4;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00bcd4;
+}
+
+section {
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1000px;
+    background: #212121;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+section h2 {
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
 /* Project Grid */
 .project-grid {
     display: grid;
@@ -14,6 +76,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     text-align: center;
+    position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -22,24 +85,54 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-.project-card img {
+/* Image Container */
+.image-container {
+    position: relative;
+    overflow: hidden;
     width: 100%;
-    border-bottom: 2px solid #00bcd4;
+    height: auto;
 }
 
-.project-card h3 {
-    margin: 15px 0 10px;
-    color: #00bcd4;
-    font-size: 1.5rem;
+.image-container img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
 }
 
-.project-card p {
-    padding: 0 15px;
+.static-image {
+    opacity: 1;
+}
+
+.hover-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hover Effect */
+.project-card:hover .static-image {
+    opacity: 0;
+}
+
+.project-card:hover .hover-gif {
+    opacity: 1;
+}
+
+/* Game Intro */
+.game-intro {
+    display: none;
+    margin: 15px;
+    font-size: 0.9rem;
     color: #ddd;
-    font-size: 1rem;
-    margin-bottom: 20px;
 }
 
+.project-card:hover .game-intro {
+    display: block;
+}
+
+/* Play Button */
 .play-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -54,4 +147,40 @@
 
 .play-btn:hover {
     background: #007c91;
+}
+
+/* Contact Section */
+section#contact p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+section#contact i {
+    color: #00bcd4;
+}
+
+/* Footer */
+footer {
+    background: #121212;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #aaa;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
